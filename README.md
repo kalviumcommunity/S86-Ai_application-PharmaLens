@@ -1,43 +1,190 @@
-# PharmaLens Assistant Workspace
+# RAG Application
 
-This repository is set up as a clean, reproducible Python workspace for building an AI assistant.
+A clean, reproducible, and secure workspace for building an AI application using Retrieval-Augmented Generation (RAG).
 
-## Layout
+This project follows a structured development environment that keeps dependencies isolated, secrets protected, and project files organized.
 
-- `data/` source documents and other local inputs
-- `src/` application code
-- `prompts/` reusable prompt templates
-- `outputs/` logs, generated answers, and evaluation artifacts
-- `.env` local secrets and runtime settings
-- `.env.example` template for required environment variables
+## Project Structure
 
-## Quick Start
+```text
+rag-app/
+├── data/          # Source documents
+├── src/           # Ingestion, embeddings, retrieval, and application code
+├── prompts/       # Prompt templates
+├── outputs/       # Logs, generated answers, and evaluation results
+├── .env           # Real secrets, never committed
+├── .env.example   # Required environment variables without real values
+├── .gitignore     # Files and folders excluded from Git
+├── requirements.txt
+└── README.md
+```
 
-1. Create and activate a virtual environment.
+## Prerequisites
 
-   ```powershell
-   python -m venv .venv
-   .\.venv\Scripts\activate
-   ```
+Make sure Python is installed on your machine.
 
-2. Install dependencies.
+## Setup
 
-   ```powershell
-   pip install -r requirements.txt
-   ```
+### 1. Clone the repository
 
-3. Copy the environment template and fill in real values.
+```bash
+git clone <repository-url>
+cd rag-app
+```
 
-   ```powershell
-   copy .env.example .env
-   ```
+### 2. Create a virtual environment
 
-4. Run the starter app.
+```bash
+python -m venv .venv
+```
 
-   ```powershell
-   python -m src.main
-   ```
+### 3. Activate the virtual environment
 
-## Reproducibility Check
+#### Windows
 
-A teammate should be able to clone this repo, create `.venv`, install `requirements.txt`, copy `.env.example` to `.env`, and run the app without editing code.
+```bash
+.venv\Scripts\activate
+```
+
+#### macOS / Linux
+
+```bash
+source .venv/bin/activate
+```
+
+After activation, the terminal should show:
+
+```text
+(.venv)
+```
+
+This ensures that the project's dependencies are isolated from other Python projects on the machine.
+
+## 4. Install Dependencies
+
+Install the dependencies listed in `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+The project uses packages including:
+
+* OpenAI
+* ChromaDB
+* python-dotenv
+
+The exact versions are recorded in `requirements.txt` to make the environment reproducible.
+
+## 5. Configure Environment Variables
+
+Create a `.env` file in the project root.
+
+```env
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_API_KEY=your-api-key
+CHAT_MODEL=gpt-4o-mini
+EMBED_MODEL=text-embedding-3-small
+```
+
+### Important
+
+The `.env` file contains secrets and **must never be committed to Git**.
+
+The repository includes `.env.example` as a safe template:
+
+```env
+OPENAI_BASE_URL=
+OPENAI_API_KEY=
+CHAT_MODEL=
+EMBED_MODEL=
+```
+
+Copy `.env.example` to `.env` and provide your actual values.
+
+## 6. Loading Secrets
+
+Secrets should be loaded at runtime rather than hard-coded into the application.
+
+Example:
+
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+api_key = os.getenv("OPENAI_API_KEY")
+```
+
+The API key should never be written directly into source code.
+
+## Reproducibility Test
+
+A new developer should be able to set up the project using the following process:
+
+```bash
+git clone <repository-url>
+cd rag-app
+
+python -m venv .venv
+```
+
+Activate the environment:
+
+```bash
+.venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Create the environment file:
+
+```bash
+copy .env.example .env
+```
+
+Then add the required API keys and configuration values to `.env`.
+
+If the project can be set up successfully on a fresh machine using these steps, the development environment is reproducible.
+
+## Security
+
+This project follows basic security practices for AI application development:
+
+* API keys are stored in `.env`.
+* `.env` is excluded from Git.
+* `.env.example` contains only variable names and no real secrets.
+* Dependencies are isolated inside a virtual environment.
+* Dependencies are recorded in `requirements.txt`.
+* Source documents are kept separately from application code.
+
+## Dependency Management
+
+Dependencies are recorded using:
+
+```bash
+pip freeze > requirements.txt
+```
+
+This captures the installed package versions so that another developer can recreate the same environment.
+
+## Development Principles
+
+This project follows four core principles:
+
+1. **Isolation**
+   Project dependencies are installed inside a virtual environment.
+
+2. **Organization**
+   Documents, source code, prompts, and outputs are separated into dedicated directories.
+
+3. **Security**
+   API keys and other secrets are stored outside the source code.
+
+4. **Reproducibility**
+   Dependencies and required environment variables are documented so the project can be recreated on another machine.
