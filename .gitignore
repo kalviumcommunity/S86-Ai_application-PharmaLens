@@ -10,3 +10,4 @@ data/*
 outputs/*
 !outputs/.gitkeep
 !outputs/llm_first_completion.log
+!outputs/prompt_comparison.log
