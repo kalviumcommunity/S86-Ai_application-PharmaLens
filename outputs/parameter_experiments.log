@@ -1,0 +1,202 @@
+PHARMALENS - MODEL PARAMETERS & OUTPUT CONTROL
+======================================================================
+
+MODEL: gemini-3.6-flash
+
+SYSTEM PROMPT:
+You are PharmaLens, a pharmaceutical research assistant. Answer factual clinical research questions clearly. Do not invent study results or unsupported medical facts.
+
+
+TEMPERATURE EXPERIMENT
+----------------------
+temperature: 0.0
+
+Prompt:
+Explain the purpose of a clinical trial and mention the main things researchers evaluate.
+
+Output:
+A **clinical trial** is a carefully designed research study conducted with human participants to evaluate the safety, effectiveness, and overall medical value of a new health intervention. Interventions can include new pharmaceuticals, medical devices, biological products, surgical techniques, or behavioral therapies, as well as new ways to use existing treatments.
+
+The primary purpose of a clinical trial is to generate reliable scientific evidence to determine whether a medical intervention is safe and effective enough to be approved for widespread public use or integrated into standard clinical practice.
+
+---
+
+### Key Factors Evaluated by Researchers
+
+During a clinical trial, researchers systematically assess several critical areas:
+
+1. **Safety and Tolerability**
+   * **Side Effects and Adverse Events:** Identifying any harmful, uncomfortable, or unexpected reactions to the intervention.
+   * **Toxicity Levels:** Determining what dose levels might cause toxic effects.
+   * **Contraindications:** Assessing who should *not* take the treatment due to health risks.
+
+2. **Efficacy (Effectiveness)**
+   * **Primary Outcomes:** Measuring whether the intervention achieves its main intended therapeutic goal (e.g., shrinking a tumor, lowering blood pressure, or preventing viral infection).
+   * **Secondary Outcomes:** Observing additional benefits, such as secondary symptom relief or improvements in related biomarkers.
+
+3. **Dosage and Administration Schedule**
+   * **Optimal Dose:** Identifying the specific amount of a drug that yields the maximum therapeutic benefit while minimizing side effects.
+   * **Frequency and Route:** Determining how often (e.g., once daily, weekly) and by what method (e.g., oral pill, intravenous infusion) the treatment should be administered.
+
+4. **Pharmacokinetics and Pharmacodynamics (PK/PD)**
+   * **Pharmacokinetics (What the body does to the drug):** Measuring how the intervention is absorbed, distributed, metabolized, and excreted by the body.
+   * **Pharmacodynamics (What the drug does to the body):** Examining the biological and biochemical mechanisms through which the drug exerts its effects.
+
+5. **Comparative Effectiveness**
+   * Evaluating whether the new intervention is superior to, safer than, or at least as effective as current standard-of-care treatments or a placebo.
+
+6. **Quality of Life and Patient-Reported Outcomes**
+   * Assessing how the intervention impacts a patient's daily functioning, pain levels, mental well-being, and overall quality of life.
+
+---
+
+### Summary
+By rigorously gathering and analyzing data across these domains, clinical trials provide regulatory agencies (such as the FDA or EMA) and healthcare providers with the evidence required to ensure that new medical treatments do more good than harm.
+
+Token usage:
+CompletionUsage(completion_tokens=545, prompt_tokens=44, total_tokens=1095, completion_tokens_details=None, prompt_tokens_details=None)
+
+
+
+TEMPERATURE EXPERIMENT
+----------------------
+temperature: 1.0
+
+Prompt:
+Explain the purpose of a clinical trial and mention the main things researchers evaluate.
+
+Output:
+A **clinical trial** is a carefully designed research study conducted with human volunteers to evaluate the safety, effectiveness, and overall therapeutic value of new medical interventions. These interventions can include experimental drugs, biologics, medical devices, surgical procedures, or behavioral health interventions.
+
+The overarching purpose of a clinical trial is to generate high-quality scientific evidence to determine whether a new treatment is safe and effective enough to be approved by regulatory authorities (such as the FDA or EMA) and integrated into routine medical practice.
+
+---
+
+### Key Parameters Evaluated by Researchers
+
+When conducting a clinical trial, researchers systematically assess several critical factors:
+
+#### 1. Safety and Tolerability
+* **Adverse Events:** Identifying any unwanted or harmful side effects, ranging from mild reactions (e.g., nausea) to severe toxicity.
+* **Tolerability:** Determining the highest dose a patient can receive without experiencing unacceptable side effects (often referred to as the Maximum Tolerated Dose).
+
+#### 2. Efficacy (Does it work?)
+* **Primary Endpoints:** Measuring whether the intervention achieves its main therapeutic goal (e.g., tumor shrinkage, lowering blood pressure, or preventing disease progression).
+* **Secondary Endpoints:** Evaluating additional beneficial effects, such as symptom relief or improved laboratory biomarkers.
+
+#### 3. Pharmacokinetics and Pharmacodynamics (PK/PD)
+* **Pharmacokinetics (PK):** How the body processes the drug—specifically its **A**bsorption, **D**istribution, **M**etabolism, and **E**xcretion (ADME).
+* **Pharmacodynamics (PD):** How the drug affects the body—its biological mechanism of action and interaction with target receptors or pathways.
+
+#### 4. Dosage and Administration
+* **Optimal Dosing:** Finding the right dose that provides the maximum therapeutic benefit while keeping side effects to a minimum.
+* **Treatment Schedule:** Determining the best frequency, route (e.g., oral, intravenous), and duration of administration.
+
+#### 5. Comparative Effectiveness
+* **Standard of Care Comparison:** Comparing the new treatment against a placebo or the current best available treatment (standard of care) to evaluate whether it offers superior or equivalent outcomes.
+
+#### 6. Patient-Reported Outcomes and Quality of Life
+* **Quality of Life (QoL):** Assessing how the intervention affects a patient’s overall well-being, physical function, and daily living.
+* **Patient Experience:** Collecting direct feedback from participants regarding symptom relief, convenience, and treatment satisfaction.
+
+Token usage:
+CompletionUsage(completion_tokens=519, prompt_tokens=44, total_tokens=1211, completion_tokens_details=None, prompt_tokens_details=None)
+
+
+
+MAX TOKENS EXPERIMENT
+---------------------
+max_tokens: 30
+
+Prompt:
+Explain the purpose of a clinical trial and mention the main things researchers evaluate.
+
+Output:
+A clinical
+
+Token usage:
+CompletionUsage(completion_tokens=2, prompt_tokens=44, total_tokens=70, completion_tokens_details=None, prompt_tokens_details=None)
+
+
+
+MAX TOKENS EXPERIMENT
+---------------------
+max_tokens: 150
+
+Prompt:
+Explain the purpose of a clinical trial and mention the main things researchers evaluate.
+
+Output:
+A **clinical trial** is
+
+Token usage:
+CompletionUsage(completion_tokens=6, prompt_tokens=44, total_tokens=190, completion_tokens_details=None, prompt_tokens_details=None)
+
+
+
+STOP EXPERIMENT - WITHOUT STOP
+------------------------------
+Prompt:
+Give three short facts about clinical trials. After the third fact, write END.
+
+Output:
+1. Clinical trials are
+
+Token usage:
+CompletionUsage(completion_tokens=5, prompt_tokens=45, total_tokens=191, completion_tokens_details=None, prompt_tokens_details=None)
+
+
+
+STOP EXPERIMENT - WITH STOP
+---------------------------
+stop: ["END"]
+
+Prompt:
+Give three short facts about clinical trials. After the third fact, write END.
+
+Output:
+1. Clinical trials are typically
+
+Token usage:
+CompletionUsage(completion_tokens=6, prompt_tokens=45, total_tokens=191, completion_tokens_details=None, prompt_tokens_details=None)
+
+
+
+RECOMMENDED SETTINGS FOR PHARMALENS GROUNDED Q&A
+================================================
+
+Temperature:
+Use a low temperature such as 0.1.
+
+Reason:
+A low temperature makes factual answers more focused,
+consistent, and less likely to introduce unnecessary creative
+content.
+
+Max tokens:
+Use a sensible output limit such as 300 tokens.
+
+Reason:
+The limit prevents unnecessarily long answers and helps control
+output-token usage and cost.
+
+Stop:
+Use a stop sequence when the application has a clearly defined
+output boundary.
+
+Reason:
+A stop sequence can prevent the model from continuing beyond
+the required response format.
+
+Top-p:
+Temperature and top-p should generally not both be aggressively
+tuned at the same time. The main PharmaLens configuration should
+start with a low temperature and only introduce additional
+sampling controls when needed.
+
+Recommended starting configuration:
+
+temperature = 0.1
+max_tokens = 300
+stop = optional
+
