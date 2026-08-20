@@ -1,0 +1,68 @@
+PHARMALENS - TOKENS, TOKENIZATION & COST ESTIMATION
+======================================================================
+
+SAMPLE 1 - SHORT QUESTION
+------------------------------------------------------------
+Characters : 50
+Words      : 8
+Tokens     : 11
+Text:
+What adverse events were reported in Study PL-101?
+
+SAMPLE 2 - PARAGRAPH
+------------------------------------------------------------
+Characters : 221
+Words      : 30
+Tokens     : 36
+Text:
+Study PL-101 evaluated the safety and effectiveness of Drug X in adult participants. Researchers monitored the participants during the clinical trial and recorded adverse events, clinical outcomes, and safety information.
+
+SAMPLE 3 - FULL DOCUMENT
+------------------------------------------------------------
+Characters : 824
+Words      : 121
+Tokens     : 146
+Text:
+Clinical Trial Report - Study PL-101
+
+Study PL-101 evaluated the safety and effectiveness of Drug X in adult
+participants. The study included participants who received either Drug X
+or a control treatment during the clinical trial.
+
+The primary objective of the study was to evaluate the effectiveness of
+Drug X. The secondary objective was to evaluate its safety and identify
+adverse events reported during the study.
+
+Commonly reported adverse events included headache, nausea, and fatigue.
+Most reported events were mild to moderate in severity.
+
+Researchers monitored participants throughout the study and recorded
+clinical outcomes, adverse events, and other safety information.
+
+The findings from this study are intended for research purposes and
+should be interpreted together with the complete clinical trial report.
+
+COST ESTIMATION
+------------------------------------------------------------
+Example input rate  : $0.000500 per 1K tokens
+Example output rate : $0.001500 per 1K tokens
+
+Input tokens  : 47
+Output tokens : 17
+
+Estimated input cost  : $0.00002350
+Estimated output cost : $0.00002550
+Estimated total cost  : $0.00004900
+
+LENGTH VS TOKEN RELATIONSHIP
+------------------------------------------------------------
+Text                                           Chars  Words  Tokens
+----------------------------------------------------------------------
+drug                                               4      1       1
+pharmacovigilance                                 17      1       6
+Drug X caused mild headache.                      28      5       6
+patient_id = 1024; adverse_event = True           39      6      11
+నమస్కారం                                           8      1      16
+
+Observation:
+Longer text generally produces more tokens, but characters, words, and tokens are not exactly proportional. Long technical words, code-like text, punctuation, and different languages can be split into tokens differently.
