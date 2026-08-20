@@ -1,0 +1,75 @@
+PHARMALENS - PROMPT CONSTRUCTION ASSIGNMENT
+============================================================
+
+TASK 1 & TASK 2 - SYSTEM AND USER ROLES
+------------------------------------------------------------
+
+SYSTEM:
+You are a pharmaceutical research assistant. Your role is to provide clear and factual explanations about clinical research concepts. Do not invent study results, medical facts, or sources. If the available information is insufficient, say that you do not have enough information to answer confidently. Keep answers concise and easy to understand.
+
+USER:
+What is the purpose of a clinical trial?
+
+ASSISTANT:
+The primary purpose of a clinical trial is to evaluate whether a new medical intervention—such as a drug, vaccine, medical device, or treatment procedure—is safe and effective for human use.
+
+Specifically, clinical trials aim to:
+
+* **Assess Safety:** Identify potential side effects, risks, and determine the optimal dosage.
+* **Measure Efficacy:** Determine if the intervention successfully treats, prevents, or diagnoses a specific condition.
+* **Compare Treatments:** Evaluate whether a new intervention is better, safer, or more convenient than existing standard treatments.
+* **Improve Patient Outcomes:** Understand how the treatment affects a patient's overall quality of life and health long-term.
+
+Clinical trials are a required step in scientific research to ensure new medical treatments are thoroughly tested before being approved for the general public.
+
+TASK 3 - PROMPT COMPARISON
+------------------------------------------------------------
+
+VARIATION 1 - VAGUE PROMPT
+
+INPUT:
+Explain clinical trials.
+
+OUTPUT:
+**Clinical trials** are research studies conducted with human participants to evaluate the safety, efficacy, and optimal dosage of new medical interventions, such as drugs, vaccines, medical devices, or therapies.
+
+They are structured into four main phases:
+
+### Phases of Clinical Trials
+
+1. **Phase 1 (Safety and Dosage):** 
+   * **Participants:** Small group (20–100 healthy volunteers or patients).
+   * **Goal:** Determines safety, safe dosage ranges, how the drug moves through the body (pharmacokinetics), and identifies initial side effects.
+
+2. **Phase 2 (Efficacy and Side Effects):**
+   * **Participants:** Larger group (100–300 people with the specific condition).
+   * **Goal:** Evaluates how well the drug works (efficacy) for a specific disease and continues to monitor short-term safety.
+
+3. **Phase 3 (Confirmation and Comparison):**
+   * **Participants:** Large group (1,000–3,000+ patients).
+   * **Goal:** Confirms effectiveness, monitors side effects, and compares the new treatment to standard existing treatments or placebos. Successful Phase 3 trials are typically required for regulatory approval (e.g., by the FDA or EMA).
+
+4. **Phase 4 (Post-Marketing Surveillance):**
+   * **Participants:** General public (thousands to millions).
+   * **Goal:** Takes place after regulatory approval to monitor long-term safety, rare side effects, and real-world effectiveness across diverse populations.
+
+---
+
+### Key Protections and Methodologies
+
+* **Informed Consent:** Participants are fully informed of the trial's purpose, risks, and potential benefits before voluntarily agreeing to participate.
+* **Ethics and Oversight:** Trials must be approved and monitored by Institutional Review Boards (IRBs) or Ethics Committees to ensure safety and ethical compliance.
+* **Controls and Blinding:** To prevent bias, trials often compare the test drug against a **control group** (receiving a placebo or standard treatment). Many are **double-blind**, meaning neither the participants nor the researchers know who receives the drug versus the control until the trial ends.
+
+VARIATION 2 - CLEAR AND CONSTRAINED PROMPT
+
+INPUT:
+In exactly two simple sentences, explain the main purpose of a clinical trial for a pharmaceutical research associate. Focus only on evaluating the safety and effectiveness of a treatment in human participants. Do not add unrelated details.
+
+OUTPUT:
+A clinical trial evaluates the safety of a new treatment in human participants. It also measures the effectiveness of the treatment in those participants.
+
+TASK 4 - CHOSEN PROMPT NOTE
+------------------------------------------------------------
+
+The clear and constrained prompt is better because it explicitly defines the task, audience, scope, required length, and information boundaries. These constraints reduce ambiguity and make the model response more focused, consistent, and easier to use in the PharmaLens application.
