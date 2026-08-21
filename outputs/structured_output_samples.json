@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-08-21T04:09:42.847117+00:00",
+  "required_fields": [
+    "answer",
+    "source"
+  ],
+  "question": "What is the purpose of a clinical trial? Include one source.",
+  "results": [
+    {
+      "case": "valid_json",
+      "raw_response": "{\"answer\": \"Clinical trials test safety and efficacy in people.\", \"source\": \"NCI - Clinical Trials Information\"}",
+      "parse_ok": true,
+      "recovered": false,
+      "parse_error": null,
+      "validated": true,
+      "missing_fields": [],
+      "parsed": {
+        "answer": "Clinical trials test safety and efficacy in people.",
+        "source": "NCI - Clinical Trials Information"
+      }
+    },
+    {
+      "case": "malformed_then_recovered",
+      "raw_response": "Model note: {'answer': 'Trial phases evaluate safety and effectiveness.', 'source': 'WHO Clinical Trials Registry'} -- done",
+      "parse_ok": true,
+      "recovered": true,
+      "parse_error": null,
+      "validated": true,
+      "missing_fields": [],
+      "parsed": {
+        "answer": "Trial phases evaluate safety and effectiveness.",
+        "source": "WHO Clinical Trials Registry"
+      }
+    },
+    {
+      "case": "missing_required_field",
+      "raw_response": "{\"answer\": \"A trial checks if a treatment works and is safe.\"}",
+      "parse_ok": true,
+      "recovered": false,
+      "parse_error": null,
+      "validated": false,
+      "missing_fields": [
+        "source"
+      ],
+      "parsed": {
+        "answer": "A trial checks if a treatment works and is safe."
+      }
+    }
+  ]
+}
