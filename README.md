@@ -238,7 +238,7 @@ Rendered examples are saved to:
 
 ```text
 outputs/prompt_template_renders.txt
-```
+
 
 
 ## Multi-Format Corpus Loader Demo
