@@ -6,11 +6,14 @@ __pycache__/
 
 data/*
 !data/.gitkeep
+!data/sample_corpus/
+!data/sample_corpus/**
 
  
 outputs/*
 !outputs/.gitkeep
 !outputs/llm_first_completion.log
 !outputs/prompt_comparison.log
+!outputs/corpus_loader_intake.log
 !outputs/structured_output_samples.json
  
