@@ -1,0 +1,21 @@
+PHARMALENS CORPUS LOADER INTAKE
+==================================================
+
+Requested files: 5
+Loaded files   : 3
+Skipped files  : 2
+
+SKIPPED fake_scan.pdf: Unsupported file type: .pdf
+SKIPPED missing_notes.txt: missing file
+
+LOADED clinical_trial_overview.txt
+length=190
+sample=Clinical trials are research studies in human participants. They evaluate whether a treatment is safe and effective. Res...
+
+LOADED eligibility_criteria.md
+length=241
+sample=# Eligibility Criteria Participants should: - Be adults aged 18 to 65. - Have a confirmed diagnosis based on protocol de...
+
+LOADED study_export.html
+length=164
+sample=Study Export Study Summary Phase 1 evaluates initial safety and dosage. Phase 2 explores early efficacy signals. Phase 3...

@@ -238,3 +238,32 @@ Rendered examples are saved to:
 ```text
 outputs/prompt_template_renders.txt
 ```
+
+## Multi-Format Corpus Loader Demo
+
+This repository includes a corpus loader that converts mixed input documents into a common plain-text representation while preserving source identifiers.
+
+Run it with:
+
+```bash
+python -m src.corpus_loader_demo
+```
+
+What it demonstrates:
+
+- Loads multiple formats into plain text (`.txt`, `.md`, `.html`).
+- Survives bad input by skipping missing or unsupported files with clear messages.
+- Retains each document source (`source_id`) for future citation.
+- Prints each loaded document's text length and short sample snippet.
+
+Sample corpus files are in:
+
+```text
+data/sample_corpus/
+```
+
+Sample intake output is saved to:
+
+```text
+outputs/corpus_loader_intake.log
+```
