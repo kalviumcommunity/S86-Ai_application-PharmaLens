@@ -1,0 +1,2 @@
+This is intentionally not a real PDF binary.
+The loader should treat .pdf as unsupported and skip it gracefully.
