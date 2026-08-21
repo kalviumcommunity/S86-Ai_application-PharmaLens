@@ -9,6 +9,7 @@ from typing import Any
 
 from src.config import load_settings
 from src.llm_client import create_client
+from src.prompt_templates import build_rag_messages
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -29,24 +30,22 @@ class ParseAttempt:
 
 
 def build_messages(question: str) -> list[dict[str, str]]:
-    """Prompt the model to return only a strict JSON object."""
-    schema_hint = '{"answer": "<short answer>", "source": "<citation or source id>"}'
+    """Build JSON-oriented messages from the shared template structure."""
+    context = (
+        "Source notes: Clinical trials evaluate safety and effectiveness "
+        "in human participants, often across phase-based studies."
+    )
+    output_instructions = (
+        "Return ONLY valid JSON with this exact structure: "
+        '{"answer": "<short answer>", "source": "<citation or source id>"}. '
+        "Do not include markdown, prose, or extra keys."
+    )
 
-    return [
-        {
-            "role": "system",
-            "content": (
-                "You are a pharmaceutical research assistant. "
-                "Return ONLY valid JSON with this exact shape: "
-                f"{schema_hint}. "
-                "Do not include markdown, prose, or extra keys."
-            ),
-        },
-        {
-            "role": "user",
-            "content": question,
-        },
-    ]
+    return build_rag_messages(
+        context=context,
+        question=question,
+        output_instructions=output_instructions,
+    )
 
 
 def call_model_for_json(question: str) -> str | None:

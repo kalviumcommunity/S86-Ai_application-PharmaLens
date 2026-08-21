@@ -14,6 +14,8 @@ outputs/*
 !outputs/.gitkeep
 !outputs/llm_first_completion.log
 !outputs/prompt_comparison.log
+!outputs/prompt_template_renders.txt
+
 !outputs/corpus_loader_intake.log
 !outputs/structured_output_samples.json
  

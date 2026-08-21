@@ -5,6 +5,7 @@ from pathlib import Path
 
 from src.config import load_settings
 from src.llm_client import create_client
+from src.prompt_templates import build_rag_messages, render_template
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -37,34 +38,37 @@ def main() -> None:
 
     # =========================================================
     # TASK 1 & TASK 2
-    # Separate system and user roles
+    # Shared template rendered with runtime values
     # =========================================================
 
-    system_prompt = (
-        "You are a pharmaceutical research assistant. "
-        "Your role is to provide clear and factual explanations "
-        "about clinical research concepts. "
-        "Do not invent study results, medical facts, or sources. "
-        "If the available information is insufficient, say that "
-        "you do not have enough information to answer confidently. "
-        "Keep answers concise and easy to understand."
+    context_text = (
+        "Clinical trials are controlled studies in human participants. "
+        "Researchers evaluate treatment safety, effectiveness, and side effects."
     )
-
     user_question = "What is the purpose of a clinical trial?"
 
-    messages = [
-        {
-            "role": "system",
-            "content": system_prompt,
-        },
-        {
-            "role": "user",
-            "content": user_question,
-        },
-    ]
+    output_instructions = "Respond in two concise sentences."
+
+    system_prompt = render_template(
+        "rag_system",
+        assistant_name="PharmaLens",
+    )
+
+    user_prompt = render_template(
+        "rag_user",
+        context=context_text,
+        question=user_question,
+        output_instructions=output_instructions,
+    )
+
+    messages = build_rag_messages(
+        context=context_text,
+        question=user_question,
+        output_instructions=output_instructions,
+    )
 
     logging.info("SYSTEM PROMPT: %s", system_prompt)
-    logging.info("USER QUESTION: %s", user_question)
+    logging.info("USER PROMPT: %s", user_prompt)
 
     answer = ask_model(client, model, messages)
 
@@ -74,7 +78,7 @@ def main() -> None:
     print(system_prompt)
 
     print("\nUser:")
-    print(user_question)
+    print(user_prompt)
 
     print("\nAssistant:")
     print(answer)
@@ -84,16 +88,20 @@ def main() -> None:
     # Compare two prompt variations
     # =========================================================
 
-    comparison_system = (
-        "You are a concise and factual pharmaceutical research "
-        "assistant. Do not invent facts."
-    )
+    comparison_system = system_prompt
 
     # ---------------------------------------------------------
     # Variation 1: Vague prompt
     # ---------------------------------------------------------
 
-    vague_prompt = "Explain clinical trials."
+    vague_question = "Explain clinical trials."
+
+    vague_prompt = render_template(
+        "rag_user",
+        context="No additional context is available.",
+        question=vague_question,
+        output_instructions="Respond freely.",
+    )
 
     vague_messages = [
         {
@@ -118,11 +126,19 @@ def main() -> None:
     # Variation 2: Clear and constrained prompt
     # ---------------------------------------------------------
 
-    clear_prompt = (
-        "In exactly two simple sentences, explain the main purpose "
-        "of a clinical trial for a pharmaceutical research associate. "
-        "Focus only on evaluating the safety and effectiveness of a "
-        "treatment in human participants. Do not add unrelated details."
+    clear_question = (
+        "What is the main purpose of a clinical trial for a "
+        "pharmaceutical research associate?"
+    )
+
+    clear_prompt = render_template(
+        "rag_user",
+        context=context_text,
+        question=clear_question,
+        output_instructions=(
+            "In exactly two simple sentences, focus only on evaluating "
+            "safety and effectiveness in human participants."
+        ),
     )
 
     clear_messages = [
