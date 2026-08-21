@@ -12,4 +12,5 @@ outputs/*
 !outputs/.gitkeep
 !outputs/llm_first_completion.log
 !outputs/prompt_comparison.log
+!outputs/structured_output_samples.json
  

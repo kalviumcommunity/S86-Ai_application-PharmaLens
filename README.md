@@ -70,9 +70,9 @@ pip install -r requirements.txt
 
 The project uses packages including:
 
-* OpenAI
-* ChromaDB
-* python-dotenv
+- OpenAI
+- ChromaDB
+- python-dotenv
 
 The exact versions are recorded in `requirements.txt` to make the environment reproducible.
 
@@ -156,12 +156,12 @@ If the project can be set up successfully on a fresh machine using these steps, 
 
 This project follows basic security practices for AI application development:
 
-* API keys are stored in `.env`.
-* `.env` is excluded from Git.
-* `.env.example` contains only variable names and no real secrets.
-* Dependencies are isolated inside a virtual environment.
-* Dependencies are recorded in `requirements.txt`.
-* Source documents are kept separately from application code.
+- API keys are stored in `.env`.
+- `.env` is excluded from Git.
+- `.env.example` contains only variable names and no real secrets.
+- Dependencies are isolated inside a virtual environment.
+- Dependencies are recorded in `requirements.txt`.
+- Source documents are kept separately from application code.
 
 ## Dependency Management
 
@@ -188,3 +188,26 @@ This project follows four core principles:
 
 4. **Reproducibility**
    Dependencies and required environment variables are documented so the project can be recreated on another machine.
+
+## Structured JSON Output Demo
+
+This repository includes a structured-output example script for RAG responses:
+
+```bash
+python -m src.structured_output_demo
+```
+
+What it demonstrates:
+
+- Prompting the model for a fixed JSON shape (`answer`, `source`) using JSON response-format mode.
+- Parsing model output into a Python dictionary.
+- Handling malformed JSON safely with clear error reporting and best-effort recovery.
+- Validating required fields before downstream use.
+
+Sample parsed results are written to:
+
+```text
+outputs/structured_output_samples.json
+```
+
+The sample output includes a malformed-then-recovered case and a missing-field rejection case.
