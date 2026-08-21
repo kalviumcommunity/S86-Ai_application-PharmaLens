@@ -212,6 +212,7 @@ outputs/structured_output_samples.json
 
 The sample output includes a malformed-then-recovered case and a missing-field rejection case.
 
+
 ## Reusable Prompt Templates
 
 Prompt templates are separated from business logic in the `prompts/` folder and rendered at runtime via `src/prompt_templates.py`.
@@ -238,6 +239,7 @@ Rendered examples are saved to:
 ```text
 outputs/prompt_template_renders.txt
 ```
+
 
 ## Multi-Format Corpus Loader Demo
 
