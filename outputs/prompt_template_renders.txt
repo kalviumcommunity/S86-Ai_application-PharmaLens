@@ -1,0 +1,43 @@
+PHARMALENS TEMPLATE RENDER EXAMPLES
+========================================
+
+FEATURE 1 - CHAT PATH RENDER
+----------------------------
+SYSTEM:
+You are PharmaLens, a pharmaceutical research assistant.
+Provide clear, factual answers about clinical research.
+Do not invent study results, medical facts, or sources.
+If context is insufficient, say you do not have enough information.
+
+USER:
+Use the context below to answer the question.
+
+Context:
+Clinical trials compare interventions to evaluate safety, effectiveness, and potential side effects.
+
+Question:
+Why are control groups used in clinical trials?
+
+Output instructions:
+Respond in 2 concise sentences.
+
+
+FEATURE 2 - BATCH CLI PATH RENDER
+---------------------------------
+SYSTEM:
+You are PharmaLens, a pharmaceutical research assistant.
+Provide clear, factual answers about clinical research.
+Do not invent study results, medical facts, or sources.
+If context is insufficient, say you do not have enough information.
+
+USER:
+Use the context below to answer the question.
+
+Context:
+Phase 1 emphasizes initial safety, phase 2 explores early efficacy, and phase 3 confirms benefit-risk at scale.
+
+Question:
+Summarize the purpose of phases 1, 2, and 3.
+
+Output instructions:
+Return a bullet list with exactly 3 bullets, one per phase.

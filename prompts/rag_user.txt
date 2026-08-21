@@ -1,0 +1,10 @@
+Use the context below to answer the question.
+
+Context:
+{context}
+
+Question:
+{question}
+
+Output instructions:
+{output_instructions}

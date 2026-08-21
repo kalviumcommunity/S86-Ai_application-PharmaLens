@@ -211,3 +211,30 @@ outputs/structured_output_samples.json
 ```
 
 The sample output includes a malformed-then-recovered case and a missing-field rejection case.
+
+## Reusable Prompt Templates
+
+Prompt templates are separated from business logic in the `prompts/` folder and rendered at runtime via `src/prompt_templates.py`.
+
+- `prompts/rag_system.txt` defines shared system behavior.
+- `prompts/rag_user.txt` defines a reusable user template with named placeholders:
+  - `{context}`
+  - `{question}`
+  - `{output_instructions}`
+
+Two features reuse the same template structure:
+
+- `src/prompt_demo.py` (chat-style request flow)
+- `src/structured_output_demo.py` (structured JSON response flow)
+
+To generate example rendered prompts for both chat and batch/CLI paths:
+
+```bash
+python -m src.template_render_demo
+```
+
+Rendered examples are saved to:
+
+```text
+outputs/prompt_template_renders.txt
+```
